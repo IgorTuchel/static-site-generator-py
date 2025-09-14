@@ -3,7 +3,7 @@ import os
 import argparse
 
 def set_parser() -> None:
-    parser = argparse.ArgumentParser(description='Example CLI with flags')
+    parser = argparse.ArgumentParser(description='Static Site Generator')
     parser.add_argument('--static_path',type=str,help="Set the Static Path for the SSG - Should contain elements such as images and css formats.")
     parser.add_argument('--public_path',type=str,help="Set the Public Path for the SSG - This is where the final generated HTML is stored.")
     parser.add_argument('--content_path',type=str,help="Set the Content Path for the SSG - Should contain the HTML.")
