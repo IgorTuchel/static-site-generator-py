@@ -6,3 +6,5 @@ test.sh
 main.sh
 .python-version
 pyproject.toml
+bin/
+config.ini
