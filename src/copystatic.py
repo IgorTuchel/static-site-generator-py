@@ -56,7 +56,7 @@ def generate_pages_recursive(from_path: str, template_path: str,dest_path: str, 
 
         if os.path.isdir(content_path):
             if not os.path.exists(dest_content_path):
-                print( "* Making Directory {dest_content_path}")
+                print( f"* Making Directory {dest_content_path}")
                 os.mkdir(dest_content_path)
 
             generate_pages_recursive(content_path,template_path,dest_content_path,basepath)
@@ -69,4 +69,4 @@ def extract_title(markdown: str) -> str:
     for line in title:
         if line.startswith("# "):
             return line[1:]
-    raise Exception("Error")
+    return ""

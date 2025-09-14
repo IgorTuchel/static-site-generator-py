@@ -1,3 +1,4 @@
+void_tags = ["img"]
 class HTMLNode():
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag
@@ -30,6 +31,8 @@ class LeafNode(HTMLNode):
             return f'{self.value}'
         
         tag_construct = f'<{self.tag}{self.props_to_html()}>'
+        if self.tag in void_tags:
+            return f'{tag_construct}{self.value}'
         end_tag_constuct = f'</{self.tag}>'
         html_construct = f'{tag_construct}{self.value}{end_tag_constuct}'
         return html_construct
@@ -40,7 +43,7 @@ class ParentNode(HTMLNode):
 
     def to_html(self) -> str:
         if not self.children:
-            raise ValueError("No Child Nodes in ParentNode")
+            return ""
         if self.tag == None:
             raise ValueError("Invalid HTML: no tag")
         
